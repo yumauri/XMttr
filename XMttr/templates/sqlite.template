@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message>
+ <MessageId>{MessageId}</MessageId>
+ <Customer>
+  <FirstName>{FirstName}</FirstName>
+  <LastName>{LastName}</LastName>
+  <Company>{Company}</Company>
+  <Address>{Address}</Address>
+  <City>{City}</City>
+  <State>{State}</State>
+  <Country>{Country}</Country>
+  <PostalCode>{PostalCode}</PostalCode>
+  <Phone>{Phone}</Phone>
+  <Fax>{Fax}</Fax>
+  <Email>{Email}</Email>
+ </Customer>
+</Message>
