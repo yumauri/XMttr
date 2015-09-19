@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message>
+  <!--#var(UUID MessageId)-->
+  <MessageId>${MessageId}</MessageId>
+  <MessageBody>
+    <Customer>
+      <FirstName>${customerFirstName}</FirstName>
+      <LastName>${customerLastName}</LastName>
+      <!--#if(customerCompany)-->
+      <Company>${customerCompany}</Company>
+      <!--#end-->
+      <!--#if(customerAddress)-->
+      <Address>${customerAddress}</Address>
+      <!--#end-->
+      <!--#if(customerCity)-->
+      <City>${customerCity}</City>
+      <!--#end-->
+      <!--#if(customerState)-->
+      <State>${customerState}</State>
+      <!--#end-->
+      <!--#if(customerCountry)-->
+      <Country>${customerCountry}</Country>
+      <!--#end-->
+      <!--#if(customerPostalCode)-->
+      <PostalCode>${customerPostalCode}</PostalCode>
+      <!--#end-->
+      <Contact>
+        <!--#if(customerPhone)-->
+        <Phone>${customerPhone}</Phone>
+        <!--#end-->
+        <!--#if(PhoneType)-->
+        <Type>${PhoneType}</Type>
+        <!--#end-->
+        <!--#if(customerFax)-->
+        <Fax>${customerFax}</Fax>
+        <!--#end-->
+        <!--#if(customerEmail)-->
+        <Email>${customerEmail}</Email>
+        <!--#end-->
+      </Contact>
+      <Mood>${MoodArtist} - ${MoodTrack}<!--#if(MoodGenre)--> (${MoodGenre}<!--#if(MoodRock)--> ${MoodRock}<!--#end-->)<!--#end--></Mood>
+      <Employee>
+        <!--#if(employeeFirstName)-->
+        <FirstName>${employeeFirstName}</FirstName>
+        <!--#end-->
+        <!--#if(employeeLastName)-->
+        <LastName>${employeeLastName}</LastName>
+        <!--#end-->
+        <!--#if(employeeTitle)-->
+        <Title>${employeeTitle}</Title>
+        <!--#end-->
+        <!--#if(employeeBirthDate)-->
+        <BirthDate>${employeeBirthDate.toDate("yyyy-MM-dd HH:mm:ss")}</BirthDate>
+        <!--#end-->
+        <!--#if(employeeHireDate)-->
+        <HireDate>${employeeHireDate.toDate("yyyy-MM-dd HH:mm:ss")}</HireDate>
+        <!--#end-->
+        <!--#var(List<Map<String,String>> Phones)-->
+        <!--#if(Phones && Phones.size)-->
+        <Phones>
+          <!--#for(Map<String,String> p : Phones)-->
+          <Phone>
+            <Phone>${p.Phone}</Phone>
+            <Type>${p.Type}</Type>
+          </Phone>
+          <!--#end-->
+        </Phones>
+        <!--#end-->
+        <!--#var(List<Map<String,String>> Emails)-->
+        <!--#if(Emails && Emails.size)-->
+        <Emails>
+          <!--#for(Map<String,String> e : Emails)-->
+          <Email>
+            <Email>${e.Email}</Email>
+            <Type>${e.Type}</Type>
+          </Email>
+          <!--#end-->
+        </Emails>
+        <!--#end-->
+      </Employee>
+      <!--#if(LicenseNumber)-->
+      <LicenseNumber>${LicenseNumber}</LicenseNumber>
+      <!--#end-->
+      <!--#if(LicenseIssueDate)-->
+      <LicenseIssueDate>${LicenseIssueDate}</LicenseIssueDate>
+      <!--#end-->
+    </Customer>
+  </MessageBody>
+</Message>
