@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: lib/js.jar lib/commons-cli-1.2.jar lib/automaton.jar lib/x
+ eger.jar lib/XMttrlib.jar
+Main-Class: name.yumaa.xmttr.Bootstrap
+

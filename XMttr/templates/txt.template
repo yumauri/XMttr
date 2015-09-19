@@ -1,0 +1,5 @@
+Hello, {Name}!
+How are you?
+Bye-bye, {ShortName}!
+  email: {Email}
+  phone: {Phone} ( {PhoneType} {PhoneNote})

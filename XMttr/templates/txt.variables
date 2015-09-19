@@ -1,0 +1,26 @@
+#######################################
+# Variable to use in message template
+#
+# XMttr get random value each time for the single variable
+# Variable value behavior can be tuned by prefix (or postfix):
+#   starts with '?' -> unrequired variable
+#   starts with '[' -> array (generate random length list, length can be regulated, by default 0-3 elements)
+#   starts with '(' -> list (get random value from list)
+#   starts with '|' -> synchronized list (choose synchronized values from all synchronized lists on level)
+#   starts with '{' -> unique list (get random value from list, then remove element from list)
+#   starts with '/' -> xeger (generate string from regex)
+#   ends with '(...)' -> function
+#   number, ends with '++' -> autoincrement
+#   starts with `expression` -> evaluate expression and concatenate with value (if any)
+#   starts with `condition`? -> evaluate expression check condition
+# Variables, started with '@' used as SQL queries to get lists
+# Values without any behavior considered as constants
+#######################################
+
+
+{Name}=/[A-Z][a-z]{5,10}
+{ShortName}=/[A-Z][a-z]{5,10}
+{Phone}=/\\+[1-9][0-9]{10}
+{PhoneType}=(Home;Fax;Mobile;Secretary
+{PhoneNote}=`this['{PhoneType}'] == 'Home' ? 'Emergency only! ' : ''`
+{Email}=`this['{ShortName}']`/\\@[a-z]{8,12}\\.(com|net|info|ru|by)
