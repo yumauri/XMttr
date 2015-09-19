@@ -79,9 +79,11 @@ public class SQLRetriever {
                         resultSet = statement.executeQuery(query);
                         ResultSetMetaData metaData = resultSet.getMetaData();
                         int columnCount = metaData.getColumnCount();
+                        int rowsCount = 0;
 
                         // travers through rows
                         while (resultSet.next()) {
+                            rowsCount++;
                             for (int i = 1; i < columnCount + 1; i++) {
                                 String columnName = metaData.getColumnLabel(i);
                                 Object columnValue = resultSet.getObject(i);
@@ -97,6 +99,7 @@ public class SQLRetriever {
                                 results.get(name).get(columnName).add(columnValue);
                             }
                         }
+                        Scribe.log(this, 3, "@ Got " + rowsCount + " rows, " + columnCount + " columns");
                     } catch (SQLException e) {
                         Scribe.log(this, 0, "Query \"" + query + "\" failed: " + e);
                     } finally {
