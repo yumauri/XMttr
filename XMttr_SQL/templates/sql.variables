@@ -1,0 +1,41 @@
+@customers = select \
+              `CustomerId` 'CustomerId', \
+              `Address` 'BillingAddress', \
+              `City` 'BillingCity', \
+              `State` 'BillingState', \
+              `Country` 'BillingCountry', \
+              `PostalCode` 'BillingPostalCode' \
+             from \
+              `Customer`
+
+SQL0=[5
+
+# CustomerId > int(11)
+SQL0.CustomerId=|@customers
+SQL0.1|int=`CustomerId`
+
+# InvoiceDate > datetime
+SQL0.2|date=now()
+
+# BillingAddress > varchar(70)
+SQL0.BillingAddress=|@customers
+SQL0.3=`BillingAddress`
+
+# BillingCity > varchar(40)
+SQL0.BillingCity=|@customers
+SQL0.4=`BillingCity`
+
+# BillingState > varchar(40)
+SQL0.BillingState=|@customers
+SQL0.5=`BillingState`
+
+# BillingCountry > varchar(40)
+SQL0.BillingCountry=|@customers
+SQL0.6=`BillingCountry`
+
+# BillingPostalCode > varchar(10)
+SQL0.BillingPostalCode=|@customers
+SQL0.7=`BillingPostalCode`
+
+# Total > decimal(10,2)
+SQL0.8|double=/[1-9][0-5]?\\.[789][1-9]

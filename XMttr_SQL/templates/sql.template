@@ -1,0 +1,12 @@
+SQL0>
+
+insert into `Invoice` (
+    `CustomerId`,
+    `InvoiceDate`,
+    `BillingAddress`,
+    `BillingCity`,
+    `BillingState`,
+    `BillingCountry`,
+    `BillingPostalCode`,
+    `Total`
+) values (?,?,?,?,?,?,?,?);
