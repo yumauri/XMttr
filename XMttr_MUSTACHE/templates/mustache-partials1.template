@@ -1,0 +1,2 @@
+Hello, {{name}}!
+{{>mustache-partials2.template}}
