@@ -1,0 +1,70 @@
+@customer = select \
+             c.FirstName "customerFirstName", \
+             c.LastName "customerLastName", \
+             c.Company "customerCompany", \
+             c.Address "customerAddress", \
+             c.City "customerCity", \
+             c.State "customerState", \
+             c.Country "customerCountry", \
+             c.PostalCode "customerPostalCode", \
+             c.Phone "customerPhone", \
+             c.Fax "customerFax", \
+             c.Email "customerEmail", \
+             e.FirstName "employeeFirstName", \
+             e.LastName "employeeLastName", \
+             e.Title "employeeTitle", \
+             e.BirthDate "employeeBirthDate", \
+             e.HireDate "employeeHireDate" \
+            from \
+             Customer c \
+             left join Employee e on c.SupportRepId = e.EmployeeId \
+            order by random()
+
+@mood = select \
+         a.Name "MoodArtist", \
+         t.Name "MoodTrack", \
+         g.Name "MoodGenre" \
+        from \
+         Artist a \
+         join Album al on al.ArtistId = a.ArtistId \
+         join Track t on t.AlbumId = al.AlbumId \
+         left join Genre g on t.GenreId = g.GenreId \
+        order by random()
+
+MessageId=uuid()
+
+customerFirstName=|@customer
+customerLastName=|@customer
+customerCompany=?|@customer
+customerAddress=?|@customer
+customerCity=?|@customer
+customerState=?|@customer
+customerCountry=?|@customer
+customerPostalCode=?|@customer
+
+customerPhone=|@customer
+PhoneType=(Домашний;Мобильный;Секретарь;Иное
+customerFax=|@customer
+customerEmail=|@customer
+
+employeeFirstName=|@customer
+employeeLastName=|@customer
+employeeTitle=?|@customer
+employeeBirthDate=?|@customer
+employeeHireDate=|@customer
+
+Phones=?[1,2
+Phones.Phone=/\\+[1-9][0-9]{10}
+Phones.Type=(Домашний;Факс;Мобильный;Секретарь;Иное
+
+Emails=?[1,
+Emails.Email=/[a-z]{7,12}\\@[a-z]{8,12}\\.(com|net|info|ru|by)
+Emails.Type=(Рабочий;Личный;Иное
+
+MoodArtist=(@mood
+MoodTrack=(@mood
+MoodGenre=(@mood
+MoodRock=`MoodGenre=='Rock'`?\\m/
+
+LicenseNumber=?/[1-9][0-9]{9,15}
+LicenseIssueDate=?/(0[1-9]|1[012])/([0][1-9]|[12][0-9]|3[01])/19[5-8][0-9]
