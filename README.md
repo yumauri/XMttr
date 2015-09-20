@@ -20,3 +20,5 @@ And second type of modules – *generators* – used to create messages, by the 
 Separation of modules to *generators* and *emitters* by the functional purposes is bit fuzzy and relative, emitters can generate and generators can emit messages, but in the large it is the ideal structure.
 
 And last but not least – to determine, how to use generators and emitters, XMttr uses *plugins*. Plugin – it's a small (or big) JavaScript script. Plugin tells to XMttr, which modules to use and how to use them, and can have simple or complicated logic, describing program flow and behavior. You could say that plugin – it's a valid program, that uses XMttr framework API.
+
+![XMttr structure](https://github.com/yumauri/XMttr/wiki/img0/XMttr-structure.png)
