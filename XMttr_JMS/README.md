@@ -12,7 +12,7 @@
 |xmttr.emitter.credentials|password| |
 |xmttr.emitter.connection|queue connection factory| |
 |xmttr.emitter.queue|queue name| |
-|xmttr.emitter.skipsend|*yes* – don't send messages, *no* – send messages|no|
+|xmttr.emitter.skipsend|*yes* – don't send messages,<br> *no* – send messages|no|
 
 #### Plugin
 

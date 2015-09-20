@@ -1,6 +1,7 @@
 # XMttr SQL
 
 *Emitter* module for XMttr, perform queries to database.
+
 Hybrid module, while physically it is emitter – it acts like generator too. It's because there is no safe way to create SQL request separately from executing it. Module creates query, then binds data variables to it and executes it. So, functionally, this module is generator and emitter *simultaneously*.
 
 #### Template example
