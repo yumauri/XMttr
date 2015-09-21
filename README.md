@@ -136,9 +136,9 @@ Phones.Phone=/\\+[1-9][0-9]{10}
 Phones.UseType=(Домашний;Факс;Мобильный
 ```
 Embedded arrays are not supported yet...
-#####JavaScript expressions
-You can use JavaScript expressions in the start of variable's value, using ` `` ` signs. Such expressions used for conditions or evaluations. Of course, JavaScript should be valid.
-###### ```?` : conditional JavaScript expression
+##### JavaScript expressions
+You can use JavaScript expressions in the start of variable's value, using <code>``</code> signs. Such expressions used for conditions or evaluations. Of course, JavaScript should be valid.
+###### <code>``?</code> : conditional JavaScript expression
 It after expression there is `?` sign – this expression considered as condition. Expression must return boolean value, and depending on it variable filled up or not. For example, if you need to feel up some variable only in case of other variable have specified value.
 ```ini
 # contact type, 'Human' or 'Company'
@@ -148,7 +148,7 @@ Type=(Human;Company
 BirthDate=`Type=='Human'`?/(0[1-9]|1[012])/([0][1-9]|[12][0-9]|3[01])/19[5-8][0-9]
 ```
 You can refer only to non-expressional other variables, which hasn't expressions themselves (that is because JavaScript expressions evaluated after all other values, and in random order).
-###### ` `` ` : evaluational JavaScript expression
+###### <code>``</code> : evaluational JavaScript expression
 If there is *no* `?` sign after expression – it just evaluated and concatenated with remain value (if any). *Note, that concatenation will cast all values to strings!*
 ```ini
 Name=James
