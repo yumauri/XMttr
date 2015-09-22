@@ -23,25 +23,6 @@ And last but not least – to determine, how to use generators and emitters, XMt
 
 ![XMttr structure](https://github.com/yumauri/XMttr/wiki/img0/XMttr-structure.png)
 
-# Directories
-
- * **XMttr/**
-   * **conf/** &rarr; *configuration files for XMttr core and modules*
-     * xmttr.properties
-     * ...
-   * **lib/** &rarr; *core, modules and plugins libraries*
-     * ...
-     * underscore-min.js
-     * XMttrlib.jar
-   * **modules/** &rarr; *modules*
-     * STD.jar
-     * ...
-   * **scripts/** &rarr; *plugins*
-     * ...
-   * **templates/** &rarr; *templates and variables files*
-     * ...
-   * **XMttr.jar**
-
 # Run
 
 ```
@@ -356,3 +337,50 @@ var b = a + 1; // == 4
 ```
 ###### `sleep()` : pause
 Call `Thread.sleep()`
+
+# Directories
+
+ * **XMttr/**
+   * **conf/** &rarr; *configuration files for XMttr core and modules*
+     * xmttr.properties
+     * ...
+   * **lib/** &rarr; *core, modules and plugins libraries*
+     * ...
+     * underscore-min.js
+     * XMttrlib.jar
+   * **modules/** &rarr; *modules*
+     * STD.jar
+     * ...
+   * **scripts/** &rarr; *plugins*
+     * ...
+   * **templates/** &rarr; *templates and variables files*
+     * ...
+   * **XMttr.jar**
+
+# Configuration
+
+You can set properties for XMttr core and modules using configuration files, command line arguments and plugin code. Here are sources' priorities in decreasing order:
+
+ 1. command line (`-D ...`)
+ 2. plugin code (`set(...);`)
+ 3. module configuration file, applied only to module itself (`conf/<moduleClassName>.properties`, or file, defined with `<moduleClassName>.properties` property)
+ 4. core configuration (`conf/xmttr.properties`, or file, defined with command line argument `-c`)
+ 5. core default configuration (`XMttr.jar/xmttr-defaults.properties`)
+ 6. module default configuration, applied only to module itself (`<module.jar>/<moduleClassName>-defaults.properties`)
+
+Properties described in INI-like format `<property>=<value>`
+
+##### XMttr core properties
+
+| property | description | default value |
+|----------|-------------|---------------|
+|**logging**|||
+|xmttr.loglevel|log level<br>*0* – normal messages<br>*1* – with timestamps<br>*2* – with messages<br>*3* – full log (objects initialization)|0|
+|xmttr.logfile|log file|*empty* (log prints out to stdout/console)|
+|**generate rules properties**|||
+|xmttr.variables|file with variables' declarations| |
+|xmttr.template|message's template file (ain't used in core)| |
+|xmttr.variables.jdbc.driver|JDBC driver for SQL queries (`@`)| |
+|xmttr.variables.jdbc.url|database URL| |
+|xmttr.variables.jdbc.user|login| |
+|xmttr.variables.jdbc.password|password| |
